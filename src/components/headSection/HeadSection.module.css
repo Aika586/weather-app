@@ -1,0 +1,46 @@
+
+.cityName{
+  font-size: var(--font-size-24);
+  align-self:end;
+ 
+}
+.weather_description{
+  font-size: 48px;
+ 
+}
+
+.weather_icon_container{
+  width:321px;
+  height:auto;
+
+}
+
+.weatherIcons{
+  width:100%;
+  height:auto;
+  border:1px solid white;
+  
+} 
+
+.weatherInfo{
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+  margin-inline: auto;
+  max-width: calc(1240px-2*10);
+  padding-inline:10px;
+
+}
+
+.cityContainer{
+  display: flex;
+  gap:5px;
+  align-items: start;
+}
+
+.headWrapper{
+  padding-top:52px;
+}
+ .arrow{
+  align-self: start;
+ }

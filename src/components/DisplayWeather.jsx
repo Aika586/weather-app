@@ -1,14 +1,24 @@
-import { getWeatherData } from "../api/getWeatherData";
-import useSWR from "swr";
+// import { getWeatherData } from "../api/getWeatherData";
+// import useSWR from "swr";
+import HeadSection from "./headSection/HeadSection";
+import RigthSideBar from "./mainSection/rightSidebar/RightSidebar";
+import { useState } from "react";
 
-const DisplayWeatherData=()=>{
-  const {data}=useSWR("get_currentData",getWeatherData)
-  console.log(data)
-  return(
+const DisplayWeatherApp = () => {
+  const [currentCity, setCurrentCity] = useState("Bishkek");
+  // const { data } = useSWR(
+  //   ["https://api.openweathermap.org/data/2.5/weather", currentCity],
+  //   ([key, currentCity]) => getWeatherData(key, currentCity)
+  // );
+
+  // console.log(data);
+  return (
     <>
-    weather app
+     
+      <HeadSection currentCity={currentCity} />
+      <RigthSideBar currentCity={currentCity}/>
     </>
-  )
-}
+  );
+};
 
-export default DisplayWeatherData
+export default DisplayWeatherApp;

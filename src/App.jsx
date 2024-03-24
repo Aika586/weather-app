@@ -1,12 +1,12 @@
-import DisplayWeatherData from "./components/DisplayWeather"
+import DisplayWeatherApp from "./components/DisplayWeather"
 
 function App() {
   
 
   return (
     <>
-    hello
-    <DisplayWeatherData/>
+    
+    <DisplayWeatherApp/>
     </>
   )
 }

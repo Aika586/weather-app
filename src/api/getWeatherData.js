@@ -1,10 +1,11 @@
-import axios from "axios";
 
-export const getWeatherData = async () => {
+import axiosPrint from "./axiosPrint";
+
+export const getWeatherData = async (key,currentCity) => {
   const APIKEY = import.meta.env.VITE_API_KEY;
   try {
-    const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=Bishkek,kg&APPID=${APIKEY}`
+    const response = await axiosPrint.get(
+      `${key}?q=${currentCity}&APPID=${APIKEY}&units=metric&mode=json`
     );
     return response.data;
   } catch (error) {

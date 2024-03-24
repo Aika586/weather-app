@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,500;1,500&family=Montserrat&family=Montserrat+Alternates:wght@600&family=Raleway:wght@600&display=swap');
+
+:root {
+  font-family: "Inter Tight", sans-serif;
+color:#ffffff;
+  --background-color-sunny: #d69e36;
+  --background-color-rainy: url("http://surl.li/rvdwk");
+  --background-blur-color: #deab4d;
+  --font-size-24: 24px;
+  --font-weight-24:500;
+  --font-size-12: 12.4px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color-sunny);
+}
