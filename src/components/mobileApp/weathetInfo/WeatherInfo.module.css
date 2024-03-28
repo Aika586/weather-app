@@ -1,0 +1,14 @@
+.weatherInfo{
+  margin-top:107px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weatherIcons{
+  width:200px;
+}
+
+.Wdescription{
+  font-size: var(--font-size-24);
+}

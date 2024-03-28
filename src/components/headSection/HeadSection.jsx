@@ -1,49 +1,62 @@
-import useSWR from "swr";
 import styles from "./HeadSection.module.css";
-import { getWeatherData } from "../../api/getWeatherData.js";
 import localIcon from "../../assets/icons/Vector.png";
 import arrowIcon from "../../assets/icons/Frame (1).png";
-import cloudyImage from "../../assets/images/cloud.png";
-import rainyImage from "../../assets/images/389.png";
-import { getCurrentDate } from "../../constants/getCurrentDate.js";
+import { weatherIcons } from "../../constants/weatherIcons";
+import Input from "./Input";
+import Temperature from "../Temperature/Temperature";
 
-const HeadSection = ({ currentCity }) => {
-  const { data: currentWeatherData } = useSWR(
-    ["weather", currentCity],
-    ([key, currentCity]) => getWeatherData(key, currentCity)
-  );
-  // console.log(currentWeatherData);
+const HeadSection = ({
+  currentWeatherData,
+  currentCityTime,
+  onSearch,
+  updateSearch,
+  value,
+  handleArrowClick,
+  showInput,
+  errorInputMessage,
+}) => {
   return (
     currentWeatherData && (
       <div className={styles.headWrapper}>
         <div className={styles.weatherInfo}>
           <div className={styles.right_content}>
-          <div className={styles.cityContainer}>
-            <img src={localIcon} alt="localIcon" className={styles.arrow}/>
-            <span className={styles.cityName}>{currentWeatherData.name}</span>
-            <img src={arrowIcon} alt="arrowIcion" />
+            <div className={styles.cityContainer}>
+              <img src={localIcon} alt="localIcon" />
+              <span className={styles.cityName}>
+                {currentWeatherData?.name}
+              </span>
+              <img
+                src={arrowIcon}
+                alt="arrowIcon"
+                className={styles.arrowIcon}
+                onClick={handleArrowClick}
+              />
+              {showInput && (
+                <Input
+                  onSearch={onSearch}
+                  value={value}
+                  updateSearch={updateSearch}
+                />
+              )}
+              {errorInputMessage && (
+                <div className="error-message">{errorInputMessage}</div>
+              )}
+            </div>
+            <p className={styles.weather_description}>
+              {currentWeatherData.weather[0].main}
+            </p>
+            <Temperature
+              currentCityTime={currentCityTime}
+              currentWeatherData={currentWeatherData}
+            />
           </div>
-          <p className={styles.weather_description}>
-            {currentWeatherData.weather[0].main}
-          </p>
-          <div className={styles.weather}>
-            <p> {Math.round(currentWeatherData.main.temp)}&deg;C</p>
-            <p>{getCurrentDate(currentWeatherData.dt)}</p>
+          <div className={styles.weather_icon_container}>
+            <img
+              src={weatherIcons[currentWeatherData.weather[0].main]}
+              className={styles.weatherIcons}
+              alt={currentWeatherData.weather[0].description}
+            />
           </div>
-        </div>
-        <div className={styles.weather_icon_container}>
-          <img
-            src={
-              currentWeatherData.weather[0].main === "Clouds"
-                ? cloudyImage
-                : currentWeatherData.weather[0].main === "Rain"
-                ? rainyImage
-                : ""
-            }
-            className={styles.weatherIcons}
-            alt={currentWeatherData.weather[0].description}
-          />
-        </div>
         </div>
       </div>
     )

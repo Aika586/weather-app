@@ -1,16 +1,22 @@
-import useSWR from "swr"
-import { getWeatherData } from "../../../api/getWeatherData"
+import CarouselForecast from "./carouselWeather/CarouselForecast";
+import AirCondition from "./airCondition/AirCondion";
+import styles from "./RightSidebar.module.css";
+import mountain from "../../../assets/images/Vector 8.png";
 
+const RigthSideBar = ({ currentCity, currentCityTime, currentWeatherData }) => {
+  return (
+    <div className={styles.sidebar_container}>
+      <CarouselForecast
+        currentCity={currentCity}
+        currentCityTime={currentCityTime}
+        isDesktop
+      />
+      <div className={styles.absolute}>
+        <AirCondition currentWeatherData={currentWeatherData} />
+      </div>
+      <img src={mountain} alt="mountain" className={styles.mountain} />
+    </div>
+  );
+};
 
-const RigthSideBar=({currentCity})=>{
-  const {data}= useSWR(["forecast", currentCity],([key,currentCity])=>getWeatherData(key,currentCity))
-  console.log(data)
-
-  return(
-<>
-helo
-</>
-  )
-}
-
-export default RigthSideBar
+export default RigthSideBar;

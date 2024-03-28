@@ -1,8 +1,3 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+"You can clone the repository and run it on your local machine. The WeatherApp displays the current weather forecast. To search for a city, click the arrow button next to the city name. This will reveal an input field where you can enter the city name. Once entered, press Enter. In the desktop version, on the right side of the main section, there is a display of the current time and day(representing with caruosel), along with weather icons representing the weather conditions for each day. Below this information, you can find details about the current weather. Note that the charts are only visual representations."

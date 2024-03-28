@@ -1,0 +1,15 @@
+.temp {
+  font-size: var(--font-size-h1);
+  color:azure
+}
+
+.mobile{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+} 
+
+ .weather{
+  padding-top:55px;
+} 
